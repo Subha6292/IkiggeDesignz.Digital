@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { NavLink, Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({onQuoteClick}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
@@ -43,6 +43,7 @@ const Header = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.07 }}
+                viewport={{ once: false }}
               >
                 <NavLink
                   to={item.to}
@@ -58,15 +59,18 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden md:block">
-            <Link
-              to="/contact"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden md:block"
+          >
+            <button
+              onClick={onQuoteClick}  // 👈 this will trigger modal
               className="bg-amber-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-900 transition-colors duration-300"
             >
               GET A QUOTE
-            </Link>
+            </button>
           </motion.div>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
