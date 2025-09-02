@@ -1,7 +1,6 @@
 import React from 'react'
 import SpacesWeShaped from '../components/SpacesWeShaped'
 import CommercialClients from '../components/CommercialClients'
-import DesignIdeas from '../components/DesignIdeas'
 
 export default function Projects() {
   return (
@@ -11,7 +10,7 @@ export default function Projects() {
       </section>
       <SpacesWeShaped />
       <CommercialClients />
-      <DesignIdeas />
     </>
   )
 }
+

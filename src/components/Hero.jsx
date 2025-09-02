@@ -37,57 +37,67 @@ const Hero = () => {
   }
 
   return (
-    <section className="pt-20 min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Headline */}
+    <section className="pt-20 relative w-full h-screen">
+  {/* Slideshow */}
+  <div className="relative w-full h-full overflow-hidden">
+    <AnimatePresence initial={false} custom={direction}>
+      <motion.img
+        key={currentIndex}
+        src={images[currentIndex]}
+        alt="Luxury interior"
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
+    </AnimatePresence>
+
+    {/* Overlay (dark gradient for text readability) */}
+    <div className="absolute inset-0 bg-black/40"></div>
+
+    {/* Text Content */}
+    <div className="absolute inset-0 flex items-center justify-start px-8 lg:px-24">
+      <div className="text-white max-w-xl">
         <motion.h1 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl md:text-7xl lg:text-8xl font-serif text-center text-gray-800 mb-16"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
         >
-          Luxury in every detail
+          Interior Designers in <span className="text-yellow-400">Roorkee</span>
         </motion.h1>
-
-        {/* Slideshow */}
-        <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden mb-8">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.img
-              key={currentIndex}
-              src={images[currentIndex]}
-              alt="Luxury interior"
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="absolute w-full h-full object-cover"
-            />
-          </AnimatePresence>
-
-          {/* Arrows */}
-          <div className="absolute inset-0 flex items-center justify-between p-6">
-            <motion.button
-              onClick={prevSlide}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
-            >
-              <HiChevronLeft size={24} />
-            </motion.button>
-            <motion.button
-              onClick={nextSlide}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
-            >
-              <HiChevronRight size={24} />
-            </motion.button>
-          </div>
-        </div>
+        <p className="mt-6 text-lg md:text-xl text-gray-200">
+          Hassle-free home interiors guaranteed with our best interior designers in Roorkee.
+        </p>
       </div>
-    </section>
+    </div>
+
+    {/* Arrows */}
+    <div className="absolute inset-0 flex items-center justify-between p-6">
+      <motion.button
+        onClick={prevSlide}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
+      >
+        <HiChevronLeft size={24} />
+      </motion.button>
+      <motion.button
+        onClick={nextSlide}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
+      >
+        <HiChevronRight size={24} />
+      </motion.button>
+    </div>
+  </div>
+</section>
+
   )
 }
+
 
 export default Hero
