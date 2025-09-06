@@ -4,6 +4,7 @@ import SpacesWeShaped from '../components/SpacesWeShaped'
 import CommercialClients from '../components/CommercialClients'
 import HowWeWork from '../components/HowWeWork'
 import OurFactory from '../components/OurFactory'
+import ConnectWithUs from '../components/ConnectWithUs' 
 import FAQ from '../components/FAQ'
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <CommercialClients />
       <HowWeWork />
       <OurFactory />
+      <ConnectWithUs />
       <FAQ />
     </>
   )
