@@ -23,8 +23,6 @@ const SpacesWeShaped = () => {
       image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       price: 'Starting at 5.21L*'
     }
-
-
   ]
 
   const carouselRef = useRef(null)
@@ -58,13 +56,6 @@ const SpacesWeShaped = () => {
               Our interior designers work with you keeping in mind your requirements and budget.
             </p>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-red-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-red-600 transition-colors duration-300 mt-6 md:mt-0 flex-shrink-0"
-          >
-            GET FREE QUOTE
-          </motion.button>
         </motion.div>
 
         {/* Carousel */}
